@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .works-wrap {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .works-con {
+      padding: 0;
+      margin: 0 -.5em;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .works-item {
+      display: inline-block;
+      min-width: 150px;
+      width: calc(20% - 1em);
+      margin: 20px .5em 0;
+      background: yellow;
+      vertical-align: top;
+    }
+
+    .works-item-t {
+      padding-bottom: 133%;
+      position: relative;
+    }
+
+    .works-item-t>img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .works-item-b {
+      margin: .5em .5em 1em;
+    }
+
+    .works-item-h {
+      margin: 10px 0 0;
+      color: burlywood;
+      font-size: 100%;
+    }
+
+    .works-btn-box {
+      padding-top: 10px;
+    }
+
+    .works-btn {
+      display: inline-block;
+      padding: 0 8px;
+      background: DarkGoldenrod;
+      color: White;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .works-item {
+        width: calc(25% - 1em);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .works-item {
+        width: calc(33.3% - 1em);
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      .works-item {
+        width: calc(50% - 1em);
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .works-item {
+        width: calc(100% - 1em);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="works-wrap">
+    <ul class="works-con">
+      <li class="works-item">
+        <div class="works-item-t">
+          <img src="./150x200.png">
+        </div>
+       
+        <div class="works-item-b">
+          <h4 class="works-item-h">一念永恒</h4>
+          <div class="works-btn-box">
+            <a href class="works-btn">立即阅读 &gt;</a>
+          </div>
+        </div>
+      </li>
+      <li class="works-item">
+        <div class="works-item-t">
+          <img src="./150x200.png">
+        </div>
+        <div class="works-item-b">
+          <h4 class="works-item-h">RE从零开始的异世界生活</h4>
+          <div class="works-btn-box">
+            <a href class="works-btn">立即阅读 &gt;</a>
+          </div>
+        </div>
+      </li>
+      ...
+    </ul>
+  </div>
+</body>
+
+</html>

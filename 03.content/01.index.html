@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #parent{
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      padding: 20px;
+      position: relative;
+    }
+    /* pointer-events
+      包括本身以及子元素事件永远不会触发，一般用作模板
+      一般用作层级高的
+     */
+    #child{
+      width: 100px;
+      height: 100px;
+      background: red;
+      pointer-events:none;
+      position: absolute;
+      z-index: 99999;
+    }
+    #child1{
+      position: absolute;;
+      z-index: 88;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 超出一定宽度 不会换行 -->
+  <input type="button" value="按钮" />
+  <!-- 超出一定宽度 会换行 -->
+  <button type="button">按钮</button>
+
+  <img src="../02.swail/common/avatar_v1.jpg" style="display:none">
+  <img src="../02.swail/common/avatar_v1.jpg" style="display:none">
+
+
+  <div id="parent">
+    <div id="child1">uuuuuuuuuuuu</div>
+    <div id='child'>
+      <div id="sub_child">oooooooooooooooooo</div>
+    </div>
+  </div>
+</body>
+
+<script>
+
+  let [name, age] = [2, 3];
+  let { hello: world } = { hello: 'hello' }
+  console.log(world);
+  // 增加性能
+  console.time('test');
+  var obj = {};
+  obj['timer'] = 'test'
+  console.timeEnd('test');
+
+  console.time('test1');
+  var obj = {};
+  obj.timer = 'test'
+  console.timeEnd('test1');
+
+
+  console.time('test2');
+  var s = obj.timer;
+  console.timeEnd('test2');
+
+
+  console.time('test3');
+  var s = obj['timer'];
+  console.timeEnd('test3');
+
+
+  var parent = document.getElementById('parent');
+  var child = document.getElementById('child');
+  var child1 = document.getElementById('child1');
+  var sub_child = document.getElementById('sub_child');
+  parent.onclick = function () {  
+    alert('父元素点击了')
+  }
+  child.onclick = function (e) {  
+    e.stopPropagation();
+    // e.preventDefault();
+    alert('child子元素点击了')
+  }
+  child1.onclick = function (e) {  
+    e.stopPropagation();
+    // e.preventDefault();
+    alert('child1子元素点击了')
+  }
+  sub_child.onclick = function (e) {  
+    // e.stopPropagation();
+    // e.preventDefault();
+    alert('sub_child子元素点击了')
+  }
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <style>
+    /* 移动端适配
+      1,先设置 html 元素的 font-size, 这个值我们暂时设置为 font-size: 37.5px，即1rem = 37.5px;
+      2,以iphone6为例子，其屏幕宽度为 750px, 整个屏幕的宽度即 20rem = 37.5 * 20px = 750px;
+      此时手机号的输入框为 490px = 13.06777777rem
+      依次将页面上的px转换为rem，这样我们就得到了全是rem为尺寸单位的页面
+      3,不能适配不同手机 引入flexible
+     */
+
+    html{
+      /* font-size: 37.5px */
+    }
+    /* 使用vm
+       100vw = 750px => 1vw = 7.5px
+       根据定义，我们了解了在iphone6手机上 1vw = 7.5px
+       此时手机号的输入框为 490px = 65.333333vw
+       依次将页面上的px转换为vw，这样我们就得到了全是vw为尺寸单位的页面
+     */
+    div{
+      width: 100vw;
+      height: 100vw;
+      background: yellow;
+    }
+
+  </style>
+</head>
+<body>
+ <div></div>
+</body>
+</html>

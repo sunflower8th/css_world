@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .box {
+    width: fit-content;
+    padding: 20px;
+    background-color: #34538b;
+    color: #fff;
+    
+}
+.box > span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 50%;
+    vertical-align: top;
+    transform: translate(.5px, 0);
+}
+.ele-problem {
+  /* 使用透明度有问题 */
+    opacity: .6; 
+}
+.ele-fixed {
+  /* 使用hsla替代rgba */
+    color: hsla(0,0%,100%,.6);
+}
+  
+  </style>
+</head>
+<body>
+    <h4>有问题的情况（点击圈圈透明度变化）：</h4>
+    <p class="box">
+        <span class="ele-problem"></span>
+    </p>
+    <h4>使用HSLA颜色：</h4>
+    <p class="box">
+        <span class="ele-fixed"></span>
+    </p>
+</body>
+</html>

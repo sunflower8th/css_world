@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+  />
+  <link rel="stylesheet" href="./common/sweetalert.css">
+  <script src="./common/sweetalert.min.js"></script>
+</head>
+
+<body>
+  <script>
+    // swal({
+    //   title: "你没有权限查看该页面", // 提示按钮的标题
+    //   text: '请从公众号进入', // 提示内容
+    //   type: "error", // 类型
+    //   showCancelButton: true, // 是否显示取消按钮
+    //   cancelButtonText: '取消', // 显示取消按钮的文本
+    //   confirmButtonColor: "#B9B9B9",// 取消按钮颜色
+    //   showConfirmButton: true,               //是否显示“确认”按钮。  
+    //   confirmButtonColor: "#DD6B55",
+    //   confirmButtonText: "确认",
+
+    //   closeOnConfirm: false,
+    //   closeOnCancel: true 
+    // });
+
+    swal({
+      title: '',
+      // type: 'info',
+      html: true,
+      imageUrl:'./common/avatar_v1.jpg',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: 'gray',
+      cancelButtonColor: '#3fc3ee',
+      confirmButtonText: '取消',
+      cancelButtonText: '确认',
+      timer:'3000'
+    })
+
+
+  </script>
+</body>
+
+</html>

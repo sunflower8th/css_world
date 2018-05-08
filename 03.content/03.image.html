@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  h1{
+    content: url('../02.swail/common/avatar_v1.jpg')
+  }
+  /* 使用伪元素制作表格头部斜线  制作旋转的三角形*/
+ #line,.funnel{
+  position: relative;
+  
+}
+#line:before{
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 94px;
+  top: 0;
+  left: 0;
+  background-color: #CACACA;
+  display: block;
+  transform: rotate(-73deg);
+  transform-origin: top;
+ 
+}
+.funnel:after{
+  content: '';
+  width:10px;
+  height: 10px;
+  display: inline-block;
+  border:1px solid #f6f6f6;
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  margin-left: -13px;
+  border-top:none;
+  border-left: none;
+  background: yellow
+}
+  </style>
+</head>
+<body>
+  <img src="">
+  <div id="line"></div>
+  <div class="funnel"></div>
+  <h1></h1>
+</body>
+</html>

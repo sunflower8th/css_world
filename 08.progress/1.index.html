@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  html{
+    font-size: 14px;
+  }
+  ul {
+    margin:0;
+    padding:0;
+  }
+  li {
+    list-style: none;
+  }
+.pub-wrap {
+  position: relative;
+  padding: 0 30px 10px;
+  margin-top: 28px;
+  border-radius: 6px;
+  background-color: #edf2f2;
+}
+.pub-title {
+  padding-top: 14px;
+  margin-right: -20px;
+  margin-left: -20px;
+  font-size: 1.1875rem;
+  text-align: center;
+}
+.pub-process {
+  position: relative;
+  height: 35px;
+  margin-top: 28px;
+  margin-left: 35px;
+  /*字体为0 解决 第五个掉下去*/
+  font-size: 0;
+  color: #fff;
+}
+/*使用伪元素制作中间线*/
+.pub-process:after {
+  position: absolute;
+  /*top 跟 transfrom 进行结合 使其居中*/
+  top: 50%;
+  left: 0;
+  /*提高层级*/
+  z-index: 1;
+  width: 99%;
+  height: 4px;
+  content: "";
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background-color: #d9d9d9;
+}
+/*li 包括线跟小圆点*/
+.pub-process li {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  width: 25%;
+  height: 35px;
+  font-size: .875rem;
+}
+/*第一个只是圆点*/
+.pub-process li:first-child {
+  width: 35px;
+  margin-left: -35px;
+}
+/*span 制作 小圆点*/
+.pub-process .ball {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 7;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  content: "";
+  text-align: center;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+}
+.pub-process .active .ball {
+  background-color: #11c2c2;
+}
+/*.pub-process .active + .active:after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 6;
+  width: 100%;
+  height: 4px;
+  content: "";
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background-color: #11c2c2;
+}*/
+.process-3 li {
+  width: 50%;
+}
+.process-5 li {
+  width: 25%;
+}
+/* flex ver
+  更加灵活
+ */
+.pub-process-flex {
+  display: -webkit-box;
+}
+.pub-process-flex li {
+  display: list-item;
+  -webkit-box-flex: 1;
+  width: auto;
+}
+.pub-process-flex li:first-child {
+  width: 35px;
+  margin-left: -35px;
+  -webkit-box-flex: 0;
+}
+  </style>
+</head>
+<body>
+
+  <!--<div class="pub-wrap">
+    <div class="pub-title" id="pubTitle">进度条</div>
+    <ul class="pub-process process-5" id="pubProcess">
+      <li class="active"><span class="ball">1天</span></li>
+      <li class="active"><span class="ball">2天</span></li>
+      <li><span class="ball">3天</span></li>
+      <li><span class="ball">4天</span></li>
+      <li><span class="ball">5天</span></li>
+    </ul>
+  </div>-->
+
+  <!-- flex版本 -->
+  <div class="pub-wrap">
+    <div class="pub-title" id="pubTitle">在群内累计布置3天作业，即可加入先锋教师！</div>
+    <ul class="pub-process process-5 pub-process-flex" id="pubProcess">
+      <li class="active"><span class="ball">1天</span></li>
+      <li class="active"><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+      <li><span class="ball">1天</span></li>
+    </ul>
+  </div>
+</body>
+</html>

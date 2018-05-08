@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+ <head>   
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+  <title>固定列头</title>   
+  <script type="text/javascript" src="js/jquery-1.8.2.js"></script>   
+  <style type="text/css">  
+  
+    .ui-table {  
+        border-collapse: collapse;  
+        width:100%;  
+        white-space: nowrap;  
+    }  
+    .ui-table th {  
+        border: 1px solid #ffffff;  
+        padding: 1px;  
+        text-align: center;  
+    }  
+    .ui-table td {  
+        border: 1px solid #ffffff;  
+        background-color: #eeeeee;  
+        padding: 3px;  
+    }  
+    div.x_auto_box {  
+        overflow-y: hidden;  
+        overflow-x: auto;  
+    }  
+  
+    div.lock_box {  
+        float: left;  
+    }  
+    </style>   
+  <script type="text/javascript">  
+     $(document).ready(function() {  
+         var rightPart = $('div.x_auto_box tr');  
+         var leftPart = $('div.lock_box tr');  
+         for (var i = 0; i < rightPart.length; i++) {  
+                 var rightHeight = rightPart.eq(i).find('td:first').height();  
+                 var leftHeight = leftPart.eq(i).find('td:first').height();  
+                 if(leftHeight > rightHeight){  
+                     rightPart.eq(i).find('td:first').height(leftHeight+1);  
+                 } else {  
+                     leftPart.eq(i).find('td:first').height(rightHeight+1);  
+                 }  
+         }  
+     });  
+      </script>   
+ </head>   
+ <body>   
+  <!-- 左侧DIV -->   
+  <div id="list">   
+   <div class="lock_box" style="width:420px;">   
+    <table class="ui-table">   
+     <tbody>  
+      <tr>   
+       <td>选择项</td>   
+       <td>No号</td>   
+       <td>员工号</td>   
+       <td>姓名</td>   
+       <td>部门</td>   
+      </tr>   
+      <tr>   
+       <td> <input type="checkbox" name="list[0].flag" value="on" id="flag0" /><input type="hidden" name="list[0].userid" value="SX00001" id="userid" /></td>   
+       <td>1</td>   
+       <td>SX00001</td>   
+       <td><a href="/HRMS2/pages/personManageInfo.jsp?userid=SX00001">员工A</a></td>   
+       <td>动画联盟<br />1111111111111</td>   
+      </tr>   
+      <tr>   
+       <td> <input type="checkbox" name="list[1].flag" value="on" id="flag1" /><input type="hidden" name="list[1].userid" value="DHL000000" id="userid" /></td>   
+       <td>2</td>   
+       <td>DHL000000</td>   
+       <td><a href="/HRMS2/pages/personManageInfo.jsp?userid=DHL000000">管理员</a></td>   
+       <td>动画联盟</td>   
+      </tr>   
+      <tr>   
+       <td> <input type="checkbox" name="list[2].flag" value="on" id="flag2" /><input type="hidden" name="list[2].userid" value="DHL130003" id="userid" /></td>   
+       <td>3</td>   
+       <td>DHL130003</td>   
+       <td><a href="/HRMS2/pages/personManageInfo.jsp?userid=DHL130003">张三</a></td>   
+       <td>动画联盟</td>   
+      </tr>   
+      <tr>   
+       <td> <input type="checkbox" name="list[3].flag" value="on" id="flag3" /><input type="hidden" name="list[3].userid" value="DHL130023" id="userid" /></td>   
+       <td>4</td>   
+       <td>DHL130023</td>   
+       <td><a href="/HRMS2/pages/personManageInfo.jsp?userid=DHL130023">李四</a></td>   
+       <td>动画联盟</td>   
+      </tr>   
+     </tbody>  
+    </table>   
+   </div>   
+   <!-- 右侧 -->   
+   <div class="x_auto_box" id="showDiv">   
+    <input type="hidden" name="dto.position" value="1" />  
+    <input type="hidden" name="dto.position" value="1" />  
+    <input type="hidden" name="dto.position" value="1" />  
+    <input type="hidden" name="dto.position" value="1" />  
+    <table id="tableRight" class="ui-table">   
+     <tbody>  
+      <tr>   
+       <td>性别</td>   
+       <td>出生日期</td>   
+       <td>民族</td>   
+       <td>籍贯</td>   
+       <td>婚姻状况</td>   
+       <td>学历</td>   
+       <td>职位</td>   
+       <td>毕业院校</td>   
+       <td>专业</td>   
+       <td>院校类别</td>   
+       <td>毕业日期</td>   
+       <td>年龄</td>   
+       <td>户籍地址</td>   
+       <td>入职时间</td>   
+       <td>转正日期</td>   
+       <td>本单位工龄</td>   
+       <td>合同签订</td>   
+       <td>合同年限</td>   
+       <td>日语等级</td>   
+       <td>社保账号</td>   
+       <td>公积金帐号</td>   
+       <td>身份证号</td>   
+       <td>毕业证书</td>   
+       <td>离职时间</td>   
+       <td>离职原因</td>   
+       <td>户口性质</td>   
+       <td>政治面貌</td>   
+       <td>参加工作</td>   
+       <td>联系电话</td>   
+       <td>邮箱</td>   
+       <td>家庭住址</td>   
+       <td>办公电话</td>   
+       <td>备注</td>   
+      </tr>   
+      <tr onclick="javascript:window.location.href='/HRMS2/pages/personManageInfo.jsp?userid=SX00001'">   
+       <td>男</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>未婚</td>   
+       <td>小学</td>   
+       <td>普通员工</td>   
+       <input type="hidden" name="dto.position" value="1" />  
+       <td></td>   
+       <td></td>   
+       <td>专升本</td>   
+       <td></td>   
+       <td>0</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>0.0</td>   
+       <td></td>   
+       <td>0</td>   
+       <td>四级</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>非农业户口</td>   
+       <td>民主党派</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+      </tr>   
+      <tr onclick="javascript:window.location.href='/HRMS2/pages/personManageInfo.jsp?userid=DHL000000'">   
+       <td>男</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>未婚</td>   
+       <td>小学</td>   
+       <td>SYSTEM</td>   
+       <input type="hidden" name="dto.position" value="1" />  
+       <td></td>   
+       <td></td>   
+       <td>专升本</td>   
+       <td></td>   
+       <td>0</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>0.0</td>   
+       <td></td>   
+       <td>0</td>   
+       <td>四级</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>非农业户口</td>   
+       <td>民主党派</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+      </tr>   
+      <tr onclick="javascript:window.location.href='/HRMS2/pages/personManageInfo.jsp?userid=DHL130003'">   
+       <td>女</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>已婚</td>   
+       <td>小学</td>   
+       <td>HR</td>   
+       <input type="hidden" name="dto.position" value="1" />  
+       <td></td>   
+       <td></td>   
+       <td>专升本</td>   
+       <td></td>   
+       <td>0</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>0.0</td>   
+       <td></td>   
+       <td>0</td>   
+       <td>四级</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>非农业户口</td>   
+       <td>民主党派</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+      </tr>   
+      <tr onclick="javascript:window.location.href='/HRMS2/pages/personManageInfo.jsp?userid=DHL130023'">   
+       <td>男</td>   
+       <td></td>   
+       <td>汉</td>   
+       <td></td>   
+       <td>已婚</td>   
+       <td>小学</td>   
+       <td>SYSTEM</td>   
+       <input type="hidden" name="dto.position" value="1" />  
+       <td></td>   
+       <td></td>   
+       <td>专升本</td>   
+       <td></td>   
+       <td>0</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>0.0</td>   
+       <td></td>   
+       <td>0</td>   
+       <td>四级</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td>非农业户口</td>   
+       <td>民主党派</td>   
+       <td></td>   
+       <td>159000000000</td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+       <td></td>   
+      </tr>   
+     </tbody>  
+    </table>   
+   </div>   
+  </div>    
+ </body>  
+</html>  
