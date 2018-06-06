@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0
+    }
+    body{
+      background: #ccc
+    }
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 10px;
+      background: #abc;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    /* 方式1 解决android 机line height 不居中
+        使用伪元素
+     */
+
+    span::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 100%;
+      margin-top: 1px;
+    }
+
+    /* 方式2 解决android 机line height 不居中 
+        使用table布局
+     */
+
+    .container {
+      display: table;
+    }
+
+    .content {
+      background-color: gray;
+      font-size: 10px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    input {
+      display: inline-block;
+      width: 200px;
+      background: #fff;
+      border-radius: 0.78905rem;
+      border: none;
+      height: 30px;
+      /* line-height: 30px; */
+      line-height: 1px;
+      box-sizing: border-box;
+      padding: 0px 5px;
+      vertical-align: middle
+    }
+  </style>
+</head>
+
+<body>
+  <div style="text-decoration: underline">span下划线</div>
+  <a href="www.baidu.com">下划线</a>
+  <a style="text-decoration: underline">sssss</a>
+  <a href="www.baidu.com" style="text-decoration: underline">下划线</a>
+  <br/>
+  <span>按钮</span>
+
+  <div class="container">
+    <span class="content">按钮</span>
+  </div>
+  <br/>
+  
+  <input type="text">
+
+
+</body>
+
+</html>

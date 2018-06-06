@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .title-text span {
+      display: block;
+      /*设置为块级元素会独占一行形成上下居中的效果*/
+      position: relative;
+      /*定位横线（当横线的父元素）*/
+      color: #188eee;
+      /*居中文字的颜色*/
+      text-align: center;
+    }
+
+    .title-text span:before,
+    .title-text span:after {
+      content: '';
+      position: absolute;
+      /*定位背景横线的位置*/
+      top: 50%;
+      background: #8c8c8c;
+      /*背景横线颜色*/
+      width: 35%;
+      /*单侧横线的长度*/
+      height: 1px;
+    }
+
+    .title-text span:before {
+      left: 2%;
+      /*调整背景横线的左右距离*/
+    }
+
+    .title-text span:after {
+      right: 2%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="work-intro">
+    <div class="title">
+      <h2 class="title-text">
+        <span>工作经历</span>
+      </h2>
+    </div>
+  </div>
+</body>
+
+</html>

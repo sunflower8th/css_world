@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    /* 等高布局
+  1，margin为负
+    margin-bottom:-9999px;
+    padding: bottom 9999px;
+  2,display:table-cell
+
+  3,两列等高布局
+   */
+
+    .box {
+      display: table;
+    }
+
+    .box img,
+    .box p {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .box1 {
+      width: 80px;
+      text-align: center;
+    }
+
+    .box1 img {
+      width: 100%
+    }
+
+    .box2 img,
+    .box2 p {
+      display: inline-block;
+      vertical-align: middle
+    }
+    .box3{
+      display: table
+    }
+    .box3 img{
+      display: table-cell;
+      vertical-align: middle
+    }
+    .box3 .right{
+      display: table-cell;
+      vertical-align: middle
+    }
+  </style>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="./avatar_v1.jpg">
+    <p>ddd</p>
+  </div>
+  <div class="box1">
+    <img src="./avatar_v1.jpg">
+    <p>ddd</p>
+  </div>
+
+  <div class="box2">
+    <img src="./avatar_v1.jpg">
+    <p>ddd</p>
+  </div>
+  <div class="box3">
+    <img src="./avatar_v1.jpg">
+    <div class="right">
+        <p>ddd</p>
+        <p>ddd</p>
+    </div>
+  </div>
+</body>
+
+</html>

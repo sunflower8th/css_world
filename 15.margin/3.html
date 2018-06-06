@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .screen-box {
+      position: relative;
+      padding: 0 0 10px 95px;
+      height: 35px;
+    }
+
+    .div-select {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 85px;
+      height: 35px;
+      border: 1px solid #eee;
+      padding: 0 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .div-select:after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      position: absolute;
+      right: 7px;
+      top: 9px;
+      border-right: 1px solid #999;
+      border-bottom: 1px solid #999;
+      transform: rotate(45deg)
+    }
+
+    .div-value {
+      line-height: 35px;
+    }
+
+    .div-select-body {
+      position: absolute;
+      left: 0;
+      top: 38px;
+      width: 85px;
+      height: 0px;
+      padding-left: 10px;
+      line-height: 30px;
+      box-sizing: border-box;
+      overflow: hidden;
+      z-index: 10;
+      box-shadow: none;
+      border-radius: 3px;
+      background: #fff;
+      transition: all .3s;
+    }
+
+    .div-select-body-active {
+      height: 122px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 1px #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="screen-box">
+    <!--用div模拟select  -->
+    <div class="div-select">
+      <div class="div-value"></div>
+      <div class="div-select-body">
+        <div class="div-option" data-type='0'>筛选类型</div>
+        <div class="div-option" data-type='1'>未完成</div>
+        <div class="div-option" data-type='2'>已完成</div>
+        <div class="div-option" data-type='3'>已取消</div>
+      </div>
+    </div>
+    <!-- <input type="text" class="div-search" placeholder="筛选关键词"> -->
+  </div>
+
+  <script>
+    $('.div-value').html('筛选类型');
+    var flag = true;
+    $('.div-select-body div').click(function (e) {
+      //  $(e.target).attr('data-type') 获取保存的自定义属性
+      // console.log($('.div-value').html())
+      var type = $(e.target).attr('data-type');
+      if (type == 1) {
+        $('.div-value').html('未完成')
+      } else if (type == 2) {
+        $('.div-value').html('已完成')
+      } else if (type == 3) {
+        $('.div-value').html('已取消')
+      }
+      $('.div-select-body').removeClass('div-select-body-active')
+      flag = true;
+    })
+
+    $('.div-value').click(function () {
+      if (flag) {
+        $('.div-select-body').addClass('div-select-body-active')
+        flag = false;
+      } else {
+        $('.div-select-body').removeClass('div-select-body-active')
+        flag = true
+      }
+    })
+    </script>
+
+  </body>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    /* 元素内置padding */
+
+    ul {
+      padding-left: 22px
+    }
+
+    button {
+      padding: 0;
+    }
+
+    /* firefox */
+
+    button::-moz-focus-inner{
+      padding: 0
+    }
+    /* 使用clip实现隐藏 */
+    button{position: absolute;clip: rect(0,0,0,0)}
+    lable{display: inline-block;line-height: 20px;padding: 10px}
+
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>dd</li>
+  </ul>
+  <!-- <button>按钮按钮</button> -->
+
+  <!-- 解决button默认样式 button 默认提交行为-->
+  <button id="btn"></button>
+  <label for="btn">按钮</label>
+
+
+  <script>
+    //判断Android ios web 
+    function getSysPlatform() {
+      if (navigator.userAgent.indexOf('Android') != -1) return 'Android';
+      else if (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1 || navigator.userAgent.indexOf('iPod') != -1) return 'IOS'
+      else return 'WEB';
+    };
+
+    // getPlatform();
+    function getPlatform() {
+      var ua = navigator.userAgent.toLowerCase();
+      if (/msie/i.test(ua) && !/opera/.test(ua)) {
+        alert("IE");
+        return;
+      } else if (/firefox/i.test(ua)) {
+        alert("Firefox");
+        return;
+      } else if (/chrome/i.test(ua) && /webkit/i.test(ua) && /mozilla/i.test(ua)) {
+        alert("Chrome");
+        return;
+      } else if (/opera/i.test(ua)) {
+        alert("Opera");
+        return;
+      } else if (/iPad/i) {
+        alert("ipad");
+        return;
+      }
+      if (/webkit/i.test(ua) && !(/chrome/i.test(ua) && /webkit/i.test(ua) && /mozilla/i.test(ua))) {
+        alert("Safari");
+        return;
+      } else {
+        alert("unKnow");
+      }
+    }
+
+
+
+  </script>
+</body>
+
+</html>

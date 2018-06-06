@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0
+    }
+  .home .homeBtn{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-width: 1300px;
+    /* min-height: 250px; */
+}
+
+.home .homeBtn .toSubscription{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background-color: red;*/
+    -webkit-clip-path: polygon(0% 0%, 35.95% 0%, 31.59% 100%, 0% 100%);
+    /* -webkit-shape-outside: polygon(0% 0%, 35.95% 0%, 31.59% 100%, 0% 100%); */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.home .homeBtn .toReservation{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background: yellow;*/
+    -webkit-clip-path: polygon(35.95% 0%, 67.85% 0%, 63.50% 100%, 31.59% 100%);
+    /* -webkit-shape-outside: polygon(38.33% 0%, 71.67% 0%, 61.67% 100%, 28.33% 100%); */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.home .homeBtn .toAccount{
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background: blue;*/
+    -webkit-clip-path: polygon(67.85% 0%, 100% 0%, 100% 100%, 63.50% 100%);
+    /* -webkit-shape-outside: polygon(71.67% 0%, 100% 0%, 100% 100%, 61.67% 100%); */
+       background-size: contain;
+    background-repeat: no-repeat;
+}
+  </style>
+</head>
+<body>
+  <div class="home">
+      <div class="homeBtn" id="homeBtn">
+          <div @click="toSubscription" class="toSubscription" style="background: url(https://cdn.boldseas.com/image/porsche-shop/test/pc/home/home_left.jpg);background-size: contain; background-repeat: no-repeat;">
+          </div>
+  
+          <div @click="toReservation" class="toReservation" style="background:url(https://cdn.boldseas.com/image/porsche-shop/test/pc/home/home_center.jpg?v=20180527) 49.5% 100%;background-size: contain; background-repeat: no-repeat;">
+          </div>
+          <div @click="toAccount" class="toAccount" style="background: url(https://cdn.boldseas.com/image/porsche-shop/test/pc/home/home_right.jpg?v=20180527) right 0;background-size: contain; background-repeat: no-repeat;">
+          </div>
+  
+      </div>
+  </div>
+    <script>
+      wsFun()
+      window.onresize = wsFun;
+      
+      function wsFun(){
+        var ws =  document.getElementById('homeBtn').offsetWidth;
+
+    var wh = parseFloat(ws/2526);
+    var tem = parseFloat(wh*318)
+    console.log('tem========>>>>'+tem)
+    document.getElementById('homeBtn').style.height = tem+'px';
+    console.log('offsetHeight=====>>>'+document.getElementById('homeBtn').offsetHeight)
+      }
+    
+    </script>
+</body>
+</html>
