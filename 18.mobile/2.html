@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .newHome{
+    transform: translateX(100%);
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    background-color: #fff;
+    transition: transform .5s;
+    width: 100%;
+  }
+
+  .newHomeTrans{
+    z-index: 1001;
+    /*页面会固定 不会滑动 */
+    /* position: fixed; */
+    position: absolute;
+    top: 0px;
+    transition: transform .5s;
+    background: #fff;
+    z-index: 999;
+  }
+  </style>
+</head>
+<body>
+  <div class="home">
+    <p>第一个页面</p>
+    <button id="btn">点击侧面滑出一个页面</button>
+  </div>
+
+  <div class="newHome" id="newHome">
+      <button id="backHome">回到home</button>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+    <p>侧面滑动出来的一个页面</p>
+  </div>
+</body>
+
+<script>
+  document.getElementById('btn').onclick = function () { 
+     document.getElementById('newHome').className = 'newHomeTrans'
+   }
+
+   document.getElementById('backHome').onclick = function(){
+    document.getElementById('newHome').className = 'newHome'
+   }
+</script>
+</html>

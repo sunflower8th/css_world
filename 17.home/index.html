@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    .home .homeBtn {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .home .homeBtn>div {
+      display: inline-block;
+      height: 100%;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    .home .homeBtn>img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0px;
+    }
+
+    .center {
+      transform: skewX(-19deg);
+      position: relative;
+      left: 33.8%;
+      width: 32%;
+      z-index: 100;
+    }
+
+    .center div {
+      transform: skewX(0deg);
+    }
+
+    .home .homeBtn .subscription_wrap {
+      position: absolute;
+      left: 0px;
+      width: 40%;
+      z-index: 10;
+    }
+
+    .home .homeBtn .account_wrap {
+      width: 40%;
+      right: 0;
+      z-index: 10;
+    }
+  </style>
 </head>
+
 <body>
-  
+
+  <div class="home">
+    <!-- 倾斜导航 -->
+    <div id="homeBtn" class="homeBtn">
+      <img src="https://cdn.boldseas.com/image/porsche-shop/test/pc/home/home-bg.jpg?v=20180611">
+      <div class="subscription_wrap" id="left"></div>
+      <div class="center" id="center"></div>
+      <div class="account_wrap" id="right"></div>
+    </div>
+
+  </div>
+
+
+  <script>
+    getBtnWidth();
+    window.onresize = getBtnWidth;
+    // 计算图片 的比例
+    function getBtnWidth() {
+      var homeW = document.getElementById('homeBtn').offsetWidth;
+      var homeWRate = parseFloat(homeW / 2526);
+      var changeW = parseFloat(homeWRate * 318);
+      document.getElementById('homeBtn').style.height = changeW + 'px';
+    }
+
+    document.getElementById('left').onclick = function(){
+      console.log('left 点击了')
+    }
+
+    document.getElementById('center').onclick = function(){
+      console.log('center 点击了')
+    }
+
+    document.getElementById('right').onclick = function(){
+      console.log('right 点击了')
+    }
+
+
+  </script>
 </body>
+
 </html>
