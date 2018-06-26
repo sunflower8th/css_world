@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0
-    }
-
-    /* 等高布局
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        /* 等高布局
   1，margin为负
     margin-bottom:-9999px;
     padding: bottom 9999px;
@@ -20,108 +19,128 @@
 
   3,两列等高布局
    */
+        
+        .box {
+            display: table;
+        }
+        
+        .box img,
+        .box p {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        .box1 {
+            width: 80px;
+            text-align: center;
+        }
+        
+        .box1 img {
+            width: 100%
+        }
+        
+        .box2 img,
+        .box2 p {
+            display: inline-block;
+            vertical-align: middle
+        }
+        
+        .box3 {
+            display: table
+        }
+        
+        .box3 img {
+            display: table-cell;
+            vertical-align: middle
+        }
+        
+        .box3 .right {
+            display: table-cell;
+            vertical-align: middle
+        }
+        
+        .back {
+            background-color: #eef0f1;
+            height: 1.441224rem;
+            line-height: 1.441224rem;
+            padding-left: 0.7rem;
+            font-size: 14px;
+            font-size: 0;
+        }
+        
+        .back img {
+            width: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .back span {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 14px
+        }
+        
+        .box8 {
+            display: flex;
+            align-items: center
+        }
+        
+        .boxImage {
+            width: 100px;
+            outline: 1px solid;
+            text-align: center;
+        }
+        /*解决图片空白
+        
+        父元素 line-height 0
+        font-size 0
+        图片vertical-align:top bottom middle  display：block
+        
+        
+         */
+    </style>
+    <style>
 
-    .box {
-      display: table;
-    }
-
-    .box img,
-    .box p {
-      display: table-cell;
-      vertical-align: middle;
-    }
-
-    .box1 {
-      width: 80px;
-      text-align: center;
-    }
-
-    .box1 img {
-      width: 100%
-    }
-
-    .box2 img,
-    .box2 p {
-      display: inline-block;
-      vertical-align: middle
-    }
-
-    .box3 {
-      display: table
-    }
-
-    .box3 img {
-      display: table-cell;
-      vertical-align: middle
-    }
-
-    .box3 .right {
-      display: table-cell;
-      vertical-align: middle
-    }
-
-    .back {
-      background-color: #eef0f1;
-      height: 1.441224rem;
-      line-height: 1.441224rem;
-      padding-left: 0.7rem;
-      font-size: 14px;
-      font-size: 0;
-    }
-    .back img{
-      width: 10px;
-    display: inline-block;
-    vertical-align: middle;
-    }
-
-    .back span{
-      display: inline-block;
-    vertical-align: middle;
-    font-size: 14px
-    }
-
-    .box8{
-      display: flex;
-      align-items: center
-    }
-  </style>
-  <style>
-  </style>
+    </style>
 </head>
 
 <body>
-  <div class="box">
-    <img src="./avatar_v1.jpg">
-    <p>ddd</p>
-  </div>
-  <div class="box1">
-    <img src="./avatar_v1.jpg">
-    <p>ddd</p>
-  </div>
-
-  <div class="box8">
-      <img src="./avatar_v1.jpg">
-      <p>ddd</p>
+    <div class="box">
+        <img src="./avatar_v1.jpg">
+        <p>ddd</p>
+    </div>
+    <div class="box1">
+        <img src="./avatar_v1.jpg">
+        <p>ddd</p>
     </div>
 
-  <div class="box2">
-    <img src="./avatar_v1.jpg">
-    <p>ddd</p>
-  </div>
-  <div class="box3">
-    <img src="./avatar_v1.jpg">
-    <div class="right">
-      <p>ddd</p>
-      <p>ddd</p>
+    <div class="box8">
+        <img src="./avatar_v1.jpg">
+        <p>ddd</p>
     </div>
-  </div>
 
-  <br/>
+    <div class="box2">
+        <img src="./avatar_v1.jpg">
+        <p>ddd</p>
+    </div>
+    <div class="box3">
+        <img src="./avatar_v1.jpg">
+        <div class="right">
+            <p>ddd</p>
+            <p>ddd</p>
+        </div>
+    </div>
 
-  <p class="back">
-    <img src="https://cdn.boldseas.com/image/porsche-shop/test/mobile/common/back-grey.png?v=20180608" class="backImg">
-    <span class="backTxt">返回</span>
-  </p>
+    <br/>
+
+    <p class="back">
+        <img src="https://cdn.boldseas.com/image/porsche-shop/test/mobile/common/back-grey.png?v=20180608" class="backImg">
+        <span class="backTxt">返回</span>
+    </p>
+
+    <div class="boxImage">
+        x <img src="../image/Firefox.png">
+    </div>
 </body>
 
 </html>

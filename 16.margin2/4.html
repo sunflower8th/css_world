@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        /* 内联元素 前面空白问题导致box 高度不是32px */
+        
+        .box {
+            line-height: 32px
+        }
+        
+        .box span {
+            font-size: 24px;
+            vertical-align: top
+            /* 解决问题 */
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background: yellow"><span style="display: inline-block"></span></div>
+    <div class="box">x<span>文字x</span></div>
+</body>
+
+</html>
