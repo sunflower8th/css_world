@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  /* text-algn-last 属性 
+     控制最后一行的显示
+    但是safari不支持
+  */
+    /*当文字为一行是，则P的宽度小于div的宽度，p标签居中显示在盒子内，文字也就居中了 ;当大于一行时，P的宽度和div的宽度是一致的 ,文字就居左对齐了*/
+    .content {  width: 200px;  border: 1px solid #ee2415;  text-align: center  ;padding: 2px 5px}
+    /*display: inline-block使P的宽度根据文字的宽度伸缩 */
+    .content p {  text-align: center;  display: inline-block ;text-align-last: left; }
+  
+</style>
+<body>
+<div class="content">
+    <p>内容只有一行居中</p>
+</div>
+<br>
+<div class="content">
+    <p>
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+      内容多行左对齐，内容多行左对齐
+
+
+
+    </p>
+</div>
+</body>
+</html>
