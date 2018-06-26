@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .sanjiao {
+      width: 0;
+      border: 10px solid;
+      border-color: #f30 transparent transparent;
+    }
+/* safari 小人 */
+    /* input::-webkit-contacts-auto-fill-button {
+      visibility: hidden;
+      display: none !important;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+    } */
+    /* safari 小钥匙 */
+    input::-webkit-credentials-auto-fill-button {
+      display: none !important;
+      visibility: hidden;
+      pointer-events: none;
+      position: absolute;
+      /* 避免占用 input 元素额外的 padding，正常情况下存在 display: none!; 就可以了 */
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label>姓名</label>
+    <input type="password" placeholder="姓名" name="name" />
+    <input type="text" placeholder="姓名" name="name" />
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>animation</title>
+  <style>
+    .box {
+      height: 100px;
+      width: 100px;
+      border: 15px solid black;
+      animation: changebox 1s ease-in-out 1s infinite alternate running forwards;
+      /* 
+      动画名称
+      动画持续时间
+      速度曲线
+      动画执行等待时间
+      动画播放次数
+      动画播放方向
+      播放状态：继续 暂停
+      动画结束 元素的样式
+       */
+    }
+
+    .box:hover {
+      animation-play-state: paused;
+    }
+   /* 定义动画名字 */
+    @keyframes changebox {
+      10% {
+        background: red;
+      }
+      50% {
+        width: 80px;
+      }
+      70% {
+        border: 15px solid yellow;
+      }
+      100% {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>
+

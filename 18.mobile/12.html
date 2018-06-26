@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .toast {
+      display: inline-block;
+      /* color: rgb(213, 0, 28);
+     */
+      color: '#fff';
+      font-size: 12px;
+      padding: 0 18px;
+      line-height: 30px;
+      height: 30px;
+      border-radius: 30px;
+      -webkit-animation-name: fadeIn;
+      /*动画名称*/
+      -webkit-animation-duration: .5s;
+      /*动画持续时间*/
+      -webkit-animation-iteration-count: 1;
+      /*动画次数*/
+      -webkit-animation-delay: 0s;
+      /*延迟时间*/
+    }
+
+    /* @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: .1;
+      }
+      20% {
+        opacity: .2;
+      }
+      30% {
+        opacity: .3;
+      }
+      40% {
+        opacity: .4;
+      }
+      40% {
+        opacity: .4;
+      }
+      60% {
+        opacity: .6;
+      }
+      70% {
+        opacity: .7;
+      }
+      80% {
+        opacity: .8;
+      }
+      90% {
+        opacity: .9;
+      }
+      100% {
+        opacity: 1;
+      }
+    } */
+  </style>
+</head>
+
+<body>
+  <script>
+    // 判断是否是移动端
+    function isWap() {
+      var userAgentInfo = navigator.userAgent;
+      var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+      for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+    // 制作弹框
+    function alertMsg(txt) {
+      if (isWap()) {
+        var alertFram = document.createElement("DIV");
+        alertFram.style.position = "fixed";
+        alertFram.style.width = "220px";
+        alertFram.style.textAlign = "center";
+        alertFram.style.top = "45%";
+        alertFram.style.zIndex = "10001";
+        // alertFram.style.background = "#fff";
+        alertFram.style.left = '50%';
+        alertFram.style.fontSize = '13px';
+        alertFram.style.borderRadius = '4px';
+        // alertFram.style.boxShadow = 'rgb(218, 217, 222) 1px 1px 1px 1px';
+        alertFram.style.background = 'rgba(0,0,0,.35)';
+        alertFram.style.transform = ' translateX(-50%)';
+        var strHtml = " <span class='toast'>" + txt + "</span>";
+        alertFram.innerHTML = strHtml;
+        document.body.appendChild(alertFram);
+        setTimeout((function () {
+          alertFram.style.display = "none";
+        }), 2000);
+      }
+    }
+
+    alertMsg('这是一个消息')
+  </script>
+</body>
+
+</html>

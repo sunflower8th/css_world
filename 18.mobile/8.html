@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* box-shadow 阴影 */
+    body{
+      background: gray
+    }
+  i{
+    font-style: normal;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #2d2d2d;
+    box-shadow:  -1px 0px 1px 0px rgba(255, 255, 255, 1);
+    /* box-shadow: inset -1px 0px 1px 0px rgba(255, 255, 255, 1); */
+    border-radius: 5px;
+    cursor: pointer;
+    /* transform: rotate(90deg); */
+    z-index: 1;
+  }
+  div::after{
+    /* content: attr(data-line); */
+    content:"为"attr(data-line)"?";
+  }
+  </style>
+</head>
+<body>
+  <i></i>
+
+  <br>
+  <div data-line="黎玲玲">姓名</div>
+</body>
+</html>

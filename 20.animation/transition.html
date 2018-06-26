@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>transition</title>
+  <style>
+    /* transition
+    
+      给元素设置过度属性 transform
+     */
+    #box {
+      height: 100px;
+      width: 100px;
+      background: green;
+      transition: transform 1s ease-in 1s;
+      /* 过度效果css属性
+         完成过度需要的时间
+         速度效果曲线
+         定义过度何时开始
+      
+       */
+    }
+
+    #box:hover {
+      transform: rotate(180deg) scale(.5, .5);
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+</body>
+</html>
+
