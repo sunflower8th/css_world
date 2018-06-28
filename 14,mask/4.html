@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /* for IE8 */
+            /* background: url(data:image/png;base64,iVB...g==); */
+            /* for IE9+ */
+            background: rgba(0, 0, 0, .5);
+            text-align: center;
+            white-space: nowrap;
+            z-index: 99;
+            /* font-size: 0;
+            overflow: auto; */
+        }
+        /* 伪造幽灵空白 使用 vertical-align:middle生效 */
+        
+        .container:after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        
+        .dialog {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 6px;
+            background-color: #fff;
+            text-align: left;
+            white-space: normal;
+        }
+        
+        .content {
+            width: 240px;
+            /* height: 120px; */
+            padding: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="dialog">
+            <div class="content">
+
+                内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位 内容占位
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

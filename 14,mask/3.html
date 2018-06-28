@@ -2,75 +2,181 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-    .choose {
-      position: relative;
-    }
-
-    .choose .radio {
-      position: relative;
-      display: inline-block;
-      font-weight: 400;
-      color: #0c4757;
-      padding-left: 25px;
-      cursor: pointer;
-    }
-
-    .choose .radio input {
-      position: absolute;
-      left: -9999px;
-    }
-
-    .choose .radio i {
-      display: block;
-      position: absolute;
-      top: 6px;
-      left: 0;
-      width: 15px;
-      height: 15px;
-      outline: 0;
-      border: 1px solid #e4e4e4;
-      background: #ffffff;
-      border-radius: 50%;
-      transition: border-color .3s;
-      -webkit-transition: border-color .3s;
-    }
-
-    .choose .radio input+i:after {
-      position: absolute;
-      content: '';
-      top: 3px;
-      left: 3px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background-color: #ff5d5b;
-      opacity: 0;
-      transition: opacity .1s;
-      -webkit-transition: opacity .1s;
-    }
-
-    .choose .radio input:checked+i:after {
-      opacity: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            /* iPhone 4, 4S */
+            html,
+            body {
+                font-size: 40px!important;
+            }
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+            /* iPhone 5 */
+            html,
+            body {
+                font-size: 40px!important;
+            }
+        }
+        
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+            /*iPhone 6 */
+            html,
+            body {
+                font-size: 50px!important;
+            }
+        }
+        
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+            /*iPhone 6+ */
+            html,
+            body {
+                font-size: 50px!important;
+            }
+        }
+        
+        @media only screen and (min-device-width: 736px) {
+            /**/
+            html,
+            body {
+                font-size: 50px!important;
+            }
+        }
+        
+        .commonInput {
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .hid {
+            display: none
+        }
+        
+        .commonInput .mask-wrap {
+            background: rgba(0, 0, 0, .5);
+            position: fixed;
+            top: 0;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 10;
+        }
+        
+        .mask-unfinish {
+            width: 270px;
+            height: 140px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -135px;
+            margin-top: -70px;
+            z-index: 11;
+            background: #fff;
+            border-radius: 0.14rem;
+            /* padding-top: 15px; */
+            box-sizing: border-box;
+        }
+        
+        .mask-unfinish input {
+            border: 1px solid #000;
+        }
+        
+        .mask-unfinish .warn {
+            padding-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .mask-unfinish .text {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        
+        .mask-unfinish input {
+            width: 90%;
+            height: 26px;
+            line-height: 26px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+        
+        .am-modal-button-group-h {
+            border-top: 1PX solid #ddd;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .am-modal-button-group-h .am-modal-button:first-child {
+            border-right: 1px solid #ddd;
+        }
+        
+        .am-modal-button-group-h .am-modal-button {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #108ee9;
+            font-size: 0.32rem;
+            height: 0.84rem;
+            line-height: 0.84rem;
+            width: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+        }
+        
+        a {
+            font-size: 14px
+        }
+    </style>
 </head>
 
 <body>
-  <div class="choose">
-    <label class="radio">选项1
-      <input type="radio" name="radio" value="1" checked>
-      <i></i>
-    </label>
-    <label class="radio">选项2
-      <input type="radio" value="2" name="radio">
-      <i></i>
-    </label>
-  </div>
+    <button id="maskBtn">弹出弹框</button>
+    <div class='hid' id="commonInput">
+        <div class="mask-wrap"></div>
+        <div class="mask-unfinish mask-item">
+            <!-- <p class="warn">注意</p> -->
+            <p class='text'>输入客户手机号</p>
+            <div class='inputVal'>
+                <input type='text' />
+            </div>
+            <div class='am-modal-footer'>
+                <div class="am-modal-button-group-h">
+                    <a class="am-modal-button" href="#" onclick="onCancle()">取消</a>
+                    <a class="am-modal-button" href="#" onclick="onSubmint()">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    var maskBtn = document.getElementById('maskBtn');
+    var commonInput = document.getElementById('commonInput');
+    // var isShowMobileInput = false
+    maskBtn.onclick = function() {
+        // isShowMobileInput = true
+        commonInput.setAttribute("class", "commonInput")
+    };
+
+    function onSubmint() {
+        commonInput.setAttribute("class", "hid")
+    }
+
+    function onCancle() {
+        commonInput.setAttribute("class", "hid")
+    }
+</script>
 
 </html>
