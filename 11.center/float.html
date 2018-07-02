@@ -2,58 +2,74 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0
-    }
-
-    .clearfix::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-
-    .clearfix {
-      zoom: 1;
-    }
-
-    ul li {
-      float: left;
-      list-style: none;
-      text-align: center;
-      width: 33.333%;
-    }
-
-    ul li span {
-      display: block
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        /* 或者overflow:hidden */
+        
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        
+        .clearfix {
+            zoom: 1;
+        }
+        
+        ul li {
+            float: left;
+            list-style: none;
+            text-align: center;
+            width: 33.333%;
+        }
+        
+        ul li span {
+            display: block
+        }
+    </style>
 </head>
 
 <body>
-  <h1>KKKKKKKK
-    <a style="float: right;">跟多</a>
-  </h1>
+    <h1>KKKKKKKK
+        <a style="float: right;">跟多</a>
+    </h1>
 
-  <ul class="clearfix">
-    <li>
-      <img src="../image/Firefox.png">
-      <span>dd</span>
-    </li>
-    <li>
-      <img src="../image/Firefox.png">
-      <span>dd</span>
-    </li>
-    <li>
-      <img src="../image/Firefox.png">
-      <span>dd</span>
-    </li>
-  </ul>
+    <ul class="clearfix">
+        <li>
+            <img src="../image/Firefox.png">
+            <span>dd</span>
+        </li>
+        <li>
+            <img src="../image/Firefox.png">
+            <span>dd</span>
+        </li>
+        <li>
+            <img src="../image/Firefox.png">
+            <span>dd</span>
+        </li>
+    </ul>
+
+    <ul style="overflow: hidden;">
+        <li>
+            <img src="../image/Firefox.png">
+            <span>dd</span>
+        </li>
+        <li>
+            <img src="../image/Firefox.png">
+            <span>dd</span>
+        </li>
+        <li>
+            <img src="../image/Firefox.png">
+            <span>dd</span>
+        </li>
+    </ul>
 </body>
 </body>
 
