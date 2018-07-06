@@ -2,89 +2,163 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0
-        }
-        
-        body {
-            background: #ccc
-        }
-        
-        span {
-            display: inline-block;
-            width: 100px;
-            height: 30px;
-            line-height: 30px;
-            font-size: 10px;
-            background: #abc;
-            text-align: center;
-            vertical-align: middle;
-        }
-        /* 方式1 解决android 机line height 不居中
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,body{
+      height: 100%;
+      overflow: hidden;
+      background: yellow
+    }
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      background: #ccc
+    }
+
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 10px;
+      background: #abc;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    /* 方式1 解决android 机line height 不居中
         使用伪元素
      */
-        
-        span::before {
-            content: '';
-            display: inline-block;
-            vertical-align: middle;
-            width: 0;
-            height: 100%;
-            margin-top: 1px;
-        }
-        /* 方式2 解决android 机line height 不居中 
+
+    span::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 100%;
+      margin-top: 1px;
+    }
+
+    /* 方式2 解决android 机line height 不居中 
         使用table布局
      */
-        
-        .container {
-            display: table;
-        }
-        
-        .content {
-            background-color: gray;
-            font-size: 10px;
-            display: table-cell;
-            vertical-align: middle;
-        }
-        
-        input {
-            display: inline-block;
-            width: 200px;
-            background: #fff;
-            border-radius: 0.78905rem;
-            border: none;
-            height: 30px;
-            /* line-height: 30px; */
-            line-height: 1px;
-            box-sizing: border-box;
-            padding: 0px 5px;
-            vertical-align: middle
-        }
-    </style>
+
+    .container {
+      display: table;
+    }
+
+    .content {
+      background-color: gray;
+      font-size: 10px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .input1 {
+      display: inline-block;
+      width: 200px;
+      background: #fff;
+      border-radius: 0.78905rem;
+      border: none;
+      height: 30px;
+      /* line-height: 30px; */
+      line-height: 1px;
+      box-sizing: border-box;
+      padding: 0px 5px;
+      vertical-align: middle
+    }
+
+    .input2 {
+      width: 200px;
+      height: 30px;
+      /* line-height: 30px; */
+      border-radius: 8px;
+      border: none;
+      /* line-height: 12px; */
+    }
+/* 控制文字水平居中
+
+
+//同时水平居中也可以用下面的css3属性
+
+box-pack: center;
+-webkit-box-pack: center;
+-webkit-justify-content: center;
+justify-content: center;
+*/
+    p {
+      font-size: .26rem;
+      height: 0.9rem;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-align-items: center;
+      align-items: center;
+      box-pack-align: center;
+      -webkit-box-pack-align: center;
+    }
+  </style>
 </head>
 
 <body>
-    <div style="text-decoration: underline">span下划线</div>
-    <a href="www.baidu.com">下划线</a>
-    <a style="text-decoration: underline">sssss</a>
-    <a href="www.baidu.com" style="text-decoration: underline">下划线</a>
-    <br/>
-    <span>按钮</span>
+  <div style="text-decoration: underline">span下划线</div>
+  <a href="www.baidu.com">下划线</a>
+  <a style="text-decoration: underline">sssss</a>
+  <a href="www.baidu.com" style="text-decoration: underline">下划线</a>
+  <br/>
+  <span>按钮</span>
 
-    <div class="container">
-        <span class="content">按钮</span>
-    </div>
-    <br/>
+  <div class="container">
+    <span class="content">按钮</span>
+  </div>
+  <br/>
 
-    <input type="text">
-
-
+  <input type="text" class="input1">
+  <br>
+  <br>
+  <input type="text" class="input2" />
+  <p>uuuuu哈哈哈哈</p>
 </body>
+<script>
+//   document.body.addEventListener('touchmove' , function(e){
+//     e.preventDefault();
+// })
 
+var overscroll = function(el) {
+  el.addEventListener('touchstart', function() {
+    var top = el.scrollTop
+      , totalScroll = el.scrollHeight
+      , currentScroll = top + el.offsetHeight;
+    //If we're at the top or the bottom of the containers
+    //scroll, push up or down one pixel.
+    //
+    //this prevents the scroll from "passing through" to
+    //the body.
+    if(top === 0) {
+      el.scrollTop = 1;
+    } else if(currentScroll === totalScroll) {
+      el.scrollTop = top - 1;
+    }
+  });
+  el.addEventListener('touchmove', function(evt) {
+    //if the content is actually scrollable, i.e. the content is long enough
+    //that scrolling can occur
+    if(el.offsetHeight < el.scrollHeight)
+      evt._isScroller = true;
+  });
+}
+overscroll(document.querySelector('.scroll'));
+document.body.addEventListener('touchmove', function(evt) {
+  //In this case, the default behavior is scrolling the body, which
+  //would result in an overflow.  Since we don't want that, we preventDefault.
+  if(!evt._isScroller) {
+    evt.preventDefault();
+  }
+});
+</script>
 </html>
