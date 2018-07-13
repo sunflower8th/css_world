@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 圣杯布局 flex-->
+  <style>
+    *{
+      margin: 0;
+      padding: 0
+    }
+    .container1{
+      display: flex;
+      flex: 1;
+      height: 100px;
+      font-size: 16px;
+    }
+    .content,.left,.right{
+      height: 100%;
+    }
+    .left{
+      flex:0 0 100px;
+      order: -1;
+      background:yellow ;
+      height: 20em;
+      font-size: 14em;
+    }
+    .right{
+      flex:0 0 1s00px;
+      order:2;
+      background:green 
+    }
+    .content{
+      flex: 1;
+      order: 1;
+      background:red 
+    }
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <div class="content">middle</div>
+    <div class="left" id="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+<script>
+  document.getElementById('left').onclick = function(){
+    console.log('left')
+  }
+</script>
+</html>

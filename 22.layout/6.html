@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    .box {
+      width: 800px;
+      height: 400px;
+      margin: 0 auto;
+      animation: loops 10s infinite;
+
+      -webkit-backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform: translate3d(0, 0, 0);
+
+    }
+
+    @keyframes loops {
+      0% {
+        background: url(https://unsplash.it/800/400?image=11) no-repeat;
+      }
+      25% {
+        background: url(https://unsplash.it/800/400?image=12) no-repeat;
+      }
+      50% {
+        background: url(https://unsplash.it/800/400?image=13) no-repeat;
+      }
+      75% {
+        background: url(https://unsplash.it/800/400?image=14) no-repeat;
+      }
+      100% {
+        background: url(https://unsplash.it/800/400?image=15) no-repeat;
+      }
+    }
+
+    @-webkit-keyframes loops {
+      0% {
+        background: url(https://unsplash.it/800/400?image=11) no-repeat;
+      }
+      25% {
+        background: url(https://unsplash.it/800/400?image=12) no-repeat;
+      }
+      50% {
+        background: url(https://unsplash.it/800/400?image=13) no-repeat;
+      }
+      75% {
+        background: url(https://unsplash.it/800/400?image=14) no-repeat;
+      }
+      100% {
+        background: url(https://unsplash.it/800/400?image=15) no-repeat;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
+<title>demo 0.5px的细线</title>
+<style>
+*{margin: 0;padding: 0}
+/*一、使用渐变来做*/
+/*注意：兼容性问题*/
+.little-line1{ position:relative;}
+.little-line1:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(0deg, transparent 50%, red 50%);
+   /* background-image: -webkit-linear-gradient(0deg, transparent 50%, red 50%);
+    background-image: -ms-linear-gradient(0deg, transparent 50%, red 50%);
+    background-image: -o-linear-gradient(0deg, transparent 50%, red 50%); */
+ }
+ /*二、使用缩放来做*/
+.little-line2{ position:relative;}
+.little-line2:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: blue;
+    /* 如果不用 background-color, 使用 border-top:1px solid blue; */
+    -webkit-transform: scaleY(.5);
+    transform:scaleY(.5);
+ }
+.lit-round{position:relative;width: 50px;height: 50px}
+.lit-round:after {
+    content: " ";
+     position: absolute;
+     left: 0;
+     top: 0;
+     z-index:-1;
+     width: 200%;
+     height:200%;
+     border:1px solid blue;
+     -webkit-transform-origin: 0 0;
+     transform-origin: 0 0;
+     -webkit-transform: scale(.5, .5);
+     transform: scale(.5, .5);
+ }
+ /*三、weui的实现方式*/
+ .weui-cell{position: relative;}
+.weui-cell:before{ 
+    content: " "; 
+    position: absolute; 
+    left: 0; top: 0; 
+    right: 0; 
+    height: 1px; 
+    border-top: 1px solid #D9D9D9; 
+    color: #D9D9D9; 
+    -webkit-transform-origin: 0 0; 
+    transform-origin: 0 0; 
+    -webkit-transform: scaleY(0.5); 
+    transform: scaleY(0.5); 
+}
+.btn-1 {
+    width: 200px;
+    height: 42px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 42px;
+    background-color: #EDEDED;
+    border: 1px solid red;
+}
+.btn-little {
+    position: relative;
+    width: 200px;
+    height: 42px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 42px;
+    background-color: #EDEDED;
+}
+.btn-little:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    left: -50%;
+    right: -50%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border:1px solid red;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<br><p>第一种方法</p><br>
+<div class="little-line1"></div>
+<br><p>第二种方法</p><br>
+<div class="little-line2"></div>
+<br>
+<div class="lit-round">四周都是0.5px</div>
+
+<br><p>第三种方法</p><br>
+<div class="weui-cell"></div>
+<br>
+<p>0.5px 边框按钮</p>
+<div class="btn-1">1px </div>
+<br/><br/>
+<div class="btn-little">0.5px</div>
+
+</body>
+</html>
