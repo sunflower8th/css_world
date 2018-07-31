@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .title{
+      animation: tetxIn 1s both;
+    }
+  @keyframes tetxIn{
+    0% {
+      letter-spacing: -3000px;
+    }
+    100%{
+      letter-spacing: normal
+    }
+  }
+  .demo{
+    max-width: 300px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  .text{
+    padding-left: 3em;
+    text-indent: -3em
+  }
+  .justify{
+    text-align: justify;
+    text-justify: inter-ideograph
+  }
+  .btn{
+    background-color: currentColor;
+  }
+  .btn::first-line{
+    color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <p class="title">
+    ddd<br>
+    ddd<br>
+    ddd<br>
+
+  </p>
+<div class="demo">
+    <p class="text">
+        回答：text-indent具有继承性，因此，级别较高的祖先元素慎用；另外，其仅对第一行内联元素有效果。
+    </p>
+    <p class="justify">
+        这是一段临时想出来的文案，其中可能参杂了几个英文单词，例如CSS，例如JS等。
+    </p>
+    <p style="text-decoration: underline">sshh哈哈</p>
+    <div>
+      <a class="btn green">green</a>
+    </div>
+</div>
+
+</body>
+</html>

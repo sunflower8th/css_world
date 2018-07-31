@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    .box {
+      position: relative;
+      width: 400px;
+      height: 110px;
+      border: 1px solid black;
+    }
+
+    .wrap {
+      width: 100px;
+      margin: auto;
+      background: yellow
+    }
+
+    .sub {
+      float: left;
+    }
+
+    /* e.stopPropagation e.stopPropagation 
+    
+    浮动元素居中通过嵌套父元素*/
+
+    .box2 {
+      position: relative;
+      height: 300px;
+      background: red
+    }
+
+    .sub2 {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 100px;
+      height: 100px;
+      background: yellow
+    }
+
+    .box3 {
+      float: left;
+      position: relative;
+      left: 50%;
+    }
+
+    p {
+      float: left;
+      position: relative;
+      right: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="wrap">
+      <div class="sub"></div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="box2">
+    <div class="sub2"></div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="box3">
+    <p>我是浮动的</p>
+    <p>我也是居中的</p>
+  </div>
+
+
+
+</body>
+
+</html>

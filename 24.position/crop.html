@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <style>
+    .crop-box,
+    .preview-box {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .crop,
+    .preview {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .crop-area,
+    .preview {
+      width: 80px;
+      height: 80px;
+    }
+
+    .crop-area {
+      position: absolute;
+      left: 88px;
+      top: 56px;
+      outline: 256px solid #000;
+      outline: 256px solid rgba(0, 0, 0, .5);
+      background: url(about:blank);
+      background: linear-gradient(to top, transparent, transparent);
+      filter: alpha(opacity=50);
+      cursor: move;
+    }
+
+    :root .crop-area {
+      filter: none;
+    }
+
+    .crop img,
+    .preview img {
+      display: block;
+      width: 256px;
+      height: 192px;
+    }
+
+    .preview img {
+      position: absolute;
+      left: -88px;
+      top: -56px;
+    }
+
+    footer {
+      height: 50px
+    }
+
+    footer p {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 15px 0;
+      background-color: aqua;
+      outline: 9999px solid aqua;
+      clip: rect(0 9999px 9999px 0);
+    }
+
+    .btn {
+      display: inline-block;
+      color: #a78252;
+      background-color: #ddc390;
+      width: 85px;
+      height: 85px;
+      line-height: 85px;
+      border: 6px solid #ddc390;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px #d6b681, 0 1px, 0 2px, 0 3px, 0 4px;
+      text-align: center;
+      -webkit-transition: border-color .25s, background-color .25s;
+      transition: border-color .25s, background-color .25s;
+      font-size: 42px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:active {
+      text-indent: 2px;
+    }
+
+    .verticle-mode {
+      writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="crop-box">
+    <h4>剪裁（仅演示移动）</h4>
+    <div class="crop">
+      <div id="cropArea" class="crop-area"></div>
+      <img src="../image/delete.png">
+    </div>
+  </div>
+  <div class="preview-box">
+    <h4>预览</h4>
+    <div class="preview">
+      <img id="previewImg" src="../image/delete.png">
+    </div>
+  </div>
+  <br>
+  <p>恭喜你中了88元红包！</p>
+  <a href="javascript:" class="btn verticle-mode">领</a>
+
+  <footer>
+    <p>ddd</p>
+  </footer>
+</body>
+<script>
+  var elCropArea = $('#cropArea');
+  var elPreviewImg = $('#previewImg');
+
+  var data = {};
+
+  elCropArea.on('mousedown', function (event) {
+    data = {
+      moving: true,
+      left: elCropArea.position().left,
+      top: elCropArea.position().top,
+      x: event.pageX,
+      y: event.pageY
+    };
+  });
+  $(document).on({
+    mousemove: function (event) {
+      if (data.moving) {
+        event.preventDefault();
+        // 移动距离
+        var moveX = event.pageX - data.x;
+        var moveY = event.pageY - data.y;
+
+        // 目标坐标
+        var left = data.left + moveX;
+        var top = data.top + moveY;
+
+        // 边界判断
+        if (left < 0) {
+          left = 0;
+        } else if (left + 80 > 256) {
+          left = 176;
+        }
+        if (top < 0) {
+          top = 0;
+        } else if (top + 80 > 192) {
+          top = 112;
+        }
+
+        // 重定位
+        elCropArea.css({
+          left: left,
+          top: top
+        });
+        elPreviewImg.css({
+          left: -1 * left,
+          top: -1 * top
+        });
+      }
+    },
+    mouseup: function () {
+      data.moving = false;
+    }
+  });
+</script>
+
+</html>

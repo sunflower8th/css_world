@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0
+  }
+  .wrap{
+    font-size: 0;
+  }
+  .left{
+    width: 100px;
+    display: inline-block;
+    height: 100px;
+    background: red;
+    font-size: 14px
+  }
+  .right{
+    width:calc(100% - 100px);
+    display: inline-block;
+    height: 100px;
+    background: yellow;
+    font-size: 14px
+  }
+  .wrap1{
+    display: flex;
+  }
+  .left1{
+    flex:  0 0 100px;
+    background: red;
+    height: 100px;
+  }
+  .right1{
+    flex:1;
+    height: 100px;
+    background: yellow
+  }
+  .wrap2{
+
+  }
+  .left2,.right2{
+    float: left;
+  }
+  .left2{
+    height: 100px;
+    background: red;
+    width: 100px;
+  }
+  .right2{
+    height: 100px;
+    background: yellow;
+    width: cacl(100% - 100px)
+  }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+  <br>
+  <br>
+  <div class="wrap1">
+    <div class="left1">left</div>
+    <div class="right1">right</div>
+  </div>
+  <br>
+  <br>
+  <div class="wrap2">
+    <div class="left2">left</div>
+    <div class="right2">right</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .overflow{
+    position: absolute;
+  }
+  .back-top-wrap{
+    text-align: right;
+    height: 0;
+    overflow: hidden;
+  }
+  .back-top-box{
+    position: fixed;
+    bottom: 100px;
+  }
+  .back-top-wrap::before{
+    content: '\2002'
+  }
+  .back-top-box img{
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+  /* 可访问性隐藏 */
+  .clip{
+    position: absolute;
+    clip: rect(0 0 0 0)
+  }
+  </style>
+</head>
+<body>
+  <h3>标题<span class="overflow">span</span></h3>
+  <h3>标题<div class="overflow">div</div></h3>
+
+  <div class="back-top-wrap">
+    <span class="back-top-box">
+      <img src="../image/backtop.png">
+    </span>
+  </div>
+
+  <div class="clip">dd</div>
+<br>
+<form>
+  <input type="submit" id="submit" class="clip">
+  <label for="submit">提交</label>
+</form>
+
+<div style="height: 100px;width: 120px">
+  <div style="position: relative;left: 30%;width: 50px;height: 50px;background: yellow"></div>
+</div>
+</body>
+</html>

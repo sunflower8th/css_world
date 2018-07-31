@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .hover{
+    /* display: block; */
+    opacity: 1;
+    position: absolute;
+    transition: opacity .25s;
+  }
+  .hover:hover{
+    opacity: 0;
+    /* display: none */
+  }
+  /* visibility 跟 transition配合; */
+  .list{
+    position: absolute;
+    visibility: hidden;
+  }
+  .td:hover .list{
+    visibility: visible;
+    transition: visibility 0s .2s;
+  }
+  </style>
+</head>
+<body>
+  <div class="hover">dddddd</div>
+  <br>
+  <div class="td">
+    <a>操作</a>
+    <div class="list">
+      <a>编辑</a>
+      <a>删除</a>
+    </div>
+  </div>
+</body>
+</html>
