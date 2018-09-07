@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes aaa {
+            from {-webkit-transform: scale(1);
+                transform: scale(1);}
+            to{-webkit-transform: scale(2);
+                transform: scale(2);}
+        }
+        #aaa{
+            margin:200px auto;
+            width:250px;
+            height:250px;
+            background: red;
+            border-radius: 50%;
+
+        }
+        #aaa:hover{
+            animation: aaa 0.1s ease-in 0s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+<div id="aaa"></div>
+</body>
+</html>

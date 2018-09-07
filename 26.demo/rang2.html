@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      *{margin:0;padding:0}
+		li{list-style:none}
+		img{vertical-align:top;border:none}
+		
+    	.range_inner{
+    		width: 100%;position: relative;height: 30px;
+        	padding-top: 20px;
+    	}
+    	.rangeline{position: absolute;width: 1px;height: 14px;bottom: -7px;background: #CCCCCC;}
+    	.rangeline1{left: 0%;background-color:#059CFA}
+    	.rangeline2{left: 8.33%;background-color:#059CFA}
+    	.rangeline3{left: 16.67%;background-color:#059CFA}
+    	.rangeline4{left: 25%;background-color:#059CFA}
+    	.rangeline5{left: 33.33%;background-color:#059CFA}
+    	.rangeline6{left: 41.67%;background-color:#059CFA}
+    	.rangeline7{left: 50%;}
+    	.rangeline8{left: 58.33%;}
+    	.rangeline9{left: 66.67%;}
+    	.rangeline10{left: 75%;}
+    	.rangeline11{left: 83.33%;}
+    	.rangeline12{left: 91.67%;}
+    	.rangeline13{left: 100%;}
+    	.slider-block{
+            outline: none; /*去掉点击时出现的外边框*/
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none; /*这三个是去掉那条线原有的默认样式，划重点！！*/
+            width: 100%;
+            height: 2px;
+            background: #ccc; /*这三个是设置滑块下面那条线的样式*/
+            position: relative;
+        }
+        .slider-block:after{
+        	content: "";
+        	width: 100%;
+        	height: 2px;
+        	position: absolute;
+        	left: 0;top: 0;
+        	background: #CCCCCC;
+        	z-index: -1;
+        }
+    	input[type=range]:focus {
+		    outline: none;
+		}
+		input[type=range]{
+		    background: linear-gradient(#059CFA, #059CFA) no-repeat;
+			background-size: 50% 100%;
+		} 
+		
+        .range_content{
+        	width: 90%;margin-left: 5%;height: 50px;position: relative;line-height: 50px;
+        }
+		.min{position: absolute;top: 0;left: 0;line-height: 20px;}
+		.max{position: absolute;top: 0;right: 0;line-height: 20px;}
+
+
+
+  </style>
+</head>
+<body>
+    <div class="range_content">
+        <span class="min">0</span>
+        <span class="max">6h</span>
+        <div class="range_inner" id="range_innerid">
+          <input type="range" max="12" min="0" value="6" step="1" class="slider-block" id="sliderblock">
+          <span class="rangeline rangeline1"></span>
+          <span class="rangeline rangeline2"></span>
+          <span class="rangeline rangeline3"></span>
+          <span class="rangeline rangeline4"></span>
+          <span class="rangeline rangeline5"></span>
+          <span class="rangeline rangeline6"></span>
+          <span class="rangeline rangeline7"></span>
+          <span class="rangeline rangeline8"></span>
+          <span class="rangeline rangeline9"></span>
+          <span class="rangeline rangeline10"></span>
+          <span class="rangeline rangeline11"></span>
+          <span class="rangeline rangeline12"></span>
+          <span class="rangeline rangeline13"></span>
+        </div>
+      </div>
+    
+</body>
+  <script>
+	var RangeSlider = function(cfg,uu){
+	    uu.sliderCfg = {
+	        min: cfg && !isNaN(parseFloat(cfg.min)) ? Number(cfg.min) : null, 
+	        max: cfg && !isNaN(parseFloat(cfg.max)) ? Number(cfg.max) : null,
+	        step: cfg && Number(cfg.step) ? cfg.step : 1,
+	        callback: cfg && cfg.callback ? cfg.callback : null
+	    };
+	    var min = uu.sliderCfg.min;
+	    var max = uu.sliderCfg.max;
+	    var step = uu.sliderCfg.step;
+	    var callback = uu.sliderCfg.callback;
+	    var range_inner=document.getElementById("range_innerid");
+	    aspan = range_inner.getElementsByTagName("span");
+	
+	    uu.setAttribute('min', min);
+	    uu.setAttribute('max', max);
+	    uu.setAttribute('step', step);
+	
+	    uu.oninput= function(e){
+	        uu.setAttribute('value', this.value);
+	        var a = this.value/12 *100;
+	        uu.style.backgroundSize = a + '% 100%';
+	        var value = this.value;
+	        for (var i=0;i<aspan.length;i++) {
+	        	(function(index){
+	        		if(index < value ){
+	        			aspan[index].style.backgroundColor="#059CFA";
+	        		}else{
+	        			aspan[index].style.backgroundColor="#CCCCCC";
+	        		}
+	        	})(i)
+	        };
+	
+	        if (typeof(callback) == 'function') {
+	            callback(this);
+	        }
+	    };
+	};
+	</script>
+	<script>
+	    var change = function($input) {
+	        /*内容可自行定义*/
+	        console.log($input.value);
+	    }
+	    var sliderblock= document.getElementById("sliderblock");
+	    RangeSlider({ min: 0,   max: 12,  step: 1,  callback: change},sliderblock);
+	</script>
+
+</html>
